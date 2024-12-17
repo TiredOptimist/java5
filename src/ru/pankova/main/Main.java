@@ -161,7 +161,7 @@ public class Main {
         }
 
         List<Point> result  = points.stream()
-                .filter(p -> p.getX() != 0 && p.getY() != 0 && p.getX() != p.getY()) // удаляем если x = y
+                .filter(p -> p.getX() != p.getY()) // фильтруем по x = y
                 .sorted(Comparator.comparingDouble(Point::getX)) // сортировка по X
                 .map(p -> new Point(p.getX(), Math.abs(p.getY())))
                 .collect(Collectors.toList());
